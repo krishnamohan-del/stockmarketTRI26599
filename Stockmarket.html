@@ -1,0 +1,94 @@
+doctype html>
+
+<html lang="en">  
+<head>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="theme-color" content="#0b111b">  
+  <meta name="description" content="BharatVest is a safe, simulated space to learn about Indian markets and practice investing.">  
+  <title>BharatVest | Learn the Market. Master the Future.</title>  
+  <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="style.css">  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>  
+  <script src="script.js" defer></script>  
+</head>  
+<body>  
+  <a class="skip-link" href="#main-content">Skip to content</a>  
+  <div class="app-shell">  
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">  
+      <a class="brand" href="#dashboard" aria-label="BharatVest home"><span class="brand-mark" aria-hidden="true">B</span><span>Bharat<span class="brand-light">Vest</span><small>LEARN THE MARKET</small></span></a>  
+      <div class="nav-label">WORKSPACE</div>  
+      <nav class="nav-list">  
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">◫</span>Overview</button>  
+        <button class="nav-item" data-view="markets"><span class="nav-icon">⌁</span>Market simulator</button>  
+        <button class="nav-item" data-view="portfolio"><span class="nav-icon">▤</span>My portfolio</button>  
+        <button class="nav-item" data-view="learn"><span class="nav-icon">▧</span>Learn</button>  
+        <button class="nav-item" data-view="quiz"><span class="nav-icon">✳</span>Daily quiz<span class="nav-count" id="quiz-nav-count">1</span></button>  
+      </nav>  
+      <div class="sidebar-bottom">  
+        <div class="side-tip"><span class="tip-spark">✦</span><strong>Small steps add up.</strong><p>One lesson today is a stronger foundation tomorrow.</p><button class="text-button" data-go="learn">Explore lessons <span aria-hidden="true">→</span></button></div>  
+        <button class="nav-item" id="theme-toggle" aria-label="Switch color theme"><span class="nav-icon" id="theme-icon">☼</span><span id="theme-label">Light appearance</span></button>  
+        <div class="profile-row"><div class="avatar" aria-hidden="true">A</div><div class="profile-copy"><strong>Market learner</strong><span>Level <b id="sidebar-level">1</b> explorer</span></div><span class="profile-more" aria-hidden="true">···</span></div>  
+      </div>  
+    </aside>  <div class="page-column">  
+  <header class="topbar">  
+    <button class="icon-button mobile-menu" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>  
+    <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong id="page-title">Overview</strong></div>  
+    <div class="topbar-actions"><span class="market-status"><i></i> SIMULATION MODE</span><button class="icon-button" id="top-theme-toggle" aria-label="Switch color theme">◐</button><div class="avatar avatar-small" aria-label="Market learner">A</div></div>  
+  </header>  
+  <div class="disclaimer"><span aria-hidden="true">ⓘ</span><strong>SIMULATED DATA — NOT LIVE MARKET PRICES.</strong><span>Practice only. No real money or market data involved.</span></div>  
+  <main id="main-content" tabindex="-1">  
+    <section class="view active" id="view-dashboard" aria-labelledby="welcome-title">  
+      <div class="welcome-row"><div><div class="eyebrow"><span class="eyebrow-line"></span>YOUR LEARNING DASHBOARD</div><h1 id="welcome-title">Good day, learner<span class="wave">.</span></h1><p class="subheading">Build your market confidence, one decision at a time.</p></div><button class="button button-primary" data-go="markets"><span aria-hidden="true">＋</span> Make a practice trade</button></div>  
+      <div class="stat-grid">  
+        <article class="stat-card stat-primary"><div class="stat-top"><span>Virtual portfolio value</span><span class="stat-symbol">₹</span></div><div class="stat-value" id="stat-value">₹1,00,000</div><div class="stat-foot"><span class="muted">Cash + current holdings</span><span class="tiny-dot"></span></div><div class="stat-accent"></div></article>  
+        <article class="stat-card"><div class="stat-top"><span>Total simulated P&amp;L</span><span class="stat-icon up" id="pnl-icon">↗</span></div><div class="stat-value" id="stat-pnl">₹0</div><div class="stat-foot"><span id="stat-pnl-label">Realized + unrealized</span><span id="stat-pnl-pct" class="positive">0.00%</span></div></article>  
+        <article class="stat-card"><div class="stat-top"><span>Available virtual cash</span><span class="stat-icon">◉</span></div><div class="stat-value" id="stat-cash">₹1,00,000</div><div class="stat-foot"><span class="muted">Ready for practice trades</span><span class="cash-indicator"></span></div></article>  
+        <article class="stat-card"><div class="stat-top"><span>Learning streak</span><span class="stat-icon streak-icon">✦</span></div><div class="stat-value"><span id="stat-streak">1</span><small> day</small></div><div class="stat-foot"><span class="muted">Keep your momentum going</span><span class="streak-flame">✦</span></div></article>  
+      </div>  
+      <div class="section-heading"><div><div class="eyebrow">YOUR PRACTICE</div><h2>Portfolio at a glance</h2></div><button class="text-button" data-go="portfolio">Full portfolio <span aria-hidden="true">→</span></button></div>  
+      <div class="dashboard-grid">  
+        <article class="panel performance-panel"><div class="panel-header"><div><h3>Portfolio performance</h3><p>Illustrative portfolio value over time</p></div><span class="live-tag"><i></i> SIMULATED</span></div><div class="chart-wrap chart-tall"><canvas id="performance-chart" aria-label="Simulated portfolio performance chart"></canvas><div class="chart-fallback" id="performance-fallback">Your practice chart will grow as you learn and trade.</div></div><div class="chart-legend"><span><i class="legend-emerald"></i>Portfolio value</span><span class="legend-note">Illustrative only</span></div></article>  
+        <article class="panel allocation-panel"><div class="panel-header"><div><h3>Portfolio mix</h3><p>Virtual cash and sample holdings</p></div><button class="more-button" data-go="portfolio" aria-label="View portfolio">···</button></div><div class="allocation-chart"><canvas id="allocation-chart" aria-label="Portfolio allocation chart"></canvas><div class="donut-center"><strong id="allocation-holdings-pct">0%</strong><span>invested</span></div></div><div class="allocation-legend" id="allocation-legend"></div></article>  
+      </div>  
+      <div class="dashboard-grid lower-grid">  
+        <article class="panel watch-panel"><div class="panel-header"><div><h3>Your watchlist</h3><p>Sample prices for learning only</p></div><button class="text-button" data-go="markets">Browse <span aria-hidden="true">→</span></button></div><div class="watchlist" id="dashboard-watchlist"></div></article>  
+        <article class="panel learning-panel"><div class="panel-header"><div><h3>Learning journey</h3><p>Your knowledge compounds too</p></div><span class="xp-chip">✦ <b id="xp-total">0</b> XP</span></div><div class="level-row"><div class="level-badge" id="level-badge">01</div><div class="level-info"><strong id="level-title">Curious beginner</strong><span><b id="xp-progress-text">0 / 100 XP</b> to next level</span></div></div><div class="progress-track"><span id="xp-progress-bar"></span></div><div class="challenge-row"><span class="challenge-icon">◎</span><div><strong>Today's challenge</strong><p id="challenge-text">Complete a quick market quiz</p></div><button class="round-arrow" data-go="quiz" aria-label="Start today's challenge">→</button></div></article>  
+      </div>  
+      <article class="panel transactions-panel"><div class="panel-header"><div><h3>Recent practice trades</h3><p>Your latest simulated activity</p></div><button class="text-button" data-go="portfolio">All activity <span aria-hidden="true">→</span></button></div><div class="table-scroll"><table><thead><tr><th>Company</th><th>Type</th><th>Quantity</th><th>Price</th><th>Date</th><th class="align-right">Order value</th></tr></thead><tbody id="recent-transactions"></tbody></table><div class="empty-inline" id="recent-empty"><span class="empty-icon">↗</span><strong>Your first practice trade starts here</strong><p>Explore the sample catalogue and try a trade with virtual cash.</p><button class="button button-secondary" data-go="markets">Explore sample stocks</button></div></div></article>  
+    </section>  
+
+    <section class="view" id="view-markets" aria-labelledby="markets-title" hidden>  
+      <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>SAFE PRACTICE SPACE</div><h1 id="markets-title">Market simulator</h1><p class="subheading">Explore fictional sample companies and practice with virtual cash.</p></div><div class="balance-pill"><span>AVAILABLE CASH</span><strong id="market-cash">₹1,00,000</strong></div></div>  
+      <div class="market-layout"><div class="panel catalogue-panel"><div class="panel-header"><div><h3>Sample catalogue</h3><p>Fictional companies · prices are simulated</p></div><span class="count-pill" id="stock-count">0 stocks</span></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="stock-search" type="search" placeholder="Search companies or symbols" autocomplete="off"><kbd>/</kbd></label><div class="catalogue-list" id="catalogue-list"></div></div>  
+        <div class="market-detail-column"><article class="panel stock-detail" id="stock-detail"></article><article class="panel holdings-compact"><div class="panel-header"><div><h3>Your holdings</h3><p>Current simulated positions</p></div><button class="text-button" data-go="portfolio">View all <span aria-hidden="true">→</span></button></div><div id="market-holdings"></div></article></div>  
+      </div>  
+    </section>  
+
+    <section class="view" id="view-portfolio" aria-labelledby="portfolio-title" hidden>  
+      <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>YOUR SIMULATED POSITIONS</div><h1 id="portfolio-title">My portfolio</h1><p class="subheading">A practice account is a great place to learn from every decision.</p></div><button class="button button-primary" data-go="markets">＋ Practice a trade</button></div>  
+      <div class="portfolio-summary" id="portfolio-summary"></div>  
+      <article class="panel holdings-panel"><div class="panel-header"><div><h3>Holdings</h3><p>Unrealized gains and losses use simulated sample prices</p></div></div><div class="table-scroll"><table><thead><tr><th>Company</th><th>Quantity</th><th>Avg. buy price</th><th>Sample price</th><th>Invested</th><th class="align-right">Unrealized P&amp;L</th></tr></thead><tbody id="holdings-table"></tbody></table><div class="empty-inline" id="holdings-empty"><span class="empty-icon">▤</span><strong>No holdings yet</strong><p>Try a sample trade to see how a portfolio works.</p><button class="button button-secondary" data-go="markets">Browse sample stocks</button></div></div></article>  
+      <article class="panel all-transactions"><div class="panel-header"><div><h3>Transaction history</h3><p>All your simulated orders, newest first</p></div><button class="text-button" id="export-transactions">Download CSV <span aria-hidden="true">↓</span></button></div><div class="table-scroll"><table><thead><tr><th>Company</th><th>Type</th><th>Quantity</th><th>Price</th><th>Charges</th><th>Date &amp; time</th><th class="align-right">Net value</th></tr></thead><tbody id="transactions-table"></tbody></table><div class="empty-inline" id="transactions-empty"><span class="empty-icon">◷</span><strong>No activity to show</strong><p>Confirmed practice trades will be saved here.</p></div></div></article>  
+    </section>  
+
+    <section class="view" id="view-learn" aria-labelledby="learn-title" hidden>  
+      <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>INDIAN MARKET LEARNING CENTRE</div><h1 id="learn-title">Know before you grow.</h1><p class="subheading">Clear, beginner-friendly lessons for building your market foundation.</p></div><div class="xp-chip large-xp">✦ <b id="learn-xp">0</b> XP earned</div></div>  
+      <div class="learn-banner"><div class="banner-copy"><span class="banner-kicker">YOUR FIRST CHAPTER</span><h2>Markets make more sense<br>when you start with the basics.</h2><p>Explore a topic at your own pace. There are no wrong turns in learning.</p></div><div class="banner-graphic" aria-hidden="true"><span class="graphic-ring ring-one"></span><span class="graphic-ring ring-two"></span><span class="graphic-line"></span><span class="graphic-dot">₹</span></div></div>  
+      <div class="section-heading learn-section-heading"><div><div class="eyebrow">THE ESSENTIALS</div><h2>Build your market map</h2></div><span class="muted" id="lesson-progress">0 of 8 explored</span></div>  
+      <div class="lesson-grid" id="lesson-grid"></div>  
+      <div class="risk-note"><span class="risk-icon">!</span><p><strong>A note on risk</strong> Learning is a first step, not a guarantee. Investing involves risk, and this simulator uses fictional prices. Consider your own goals and consult a qualified professional before making real financial decisions.</p></div>  
+    </section>  
+
+    <section class="view" id="view-quiz" aria-labelledby="quiz-title" hidden>  
+      <div class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>DAILY KNOWLEDGE CHECK</div><h1 id="quiz-title">A little quiz. A lot of progress.</h1><p class="subheading">Build confidence by checking what you've learned.</p></div><div class="quiz-stats"><span>✦ <b id="quiz-xp">0</b> XP</span><span>◎ <b id="quiz-streak">1</b> day streak</span></div></div>  
+      <div class="quiz-layout"><article class="panel quiz-panel" id="quiz-card"></article><aside class="panel quiz-aside"><div class="quiz-aside-icon">✳</div><div class="eyebrow">LEARNING, YOUR WAY</div><h3>Progress over perfection.</h3><p>Give it a go, see the explanation, and take the insight with you. Your first answer is always a learning moment.</p><div class="quiz-divider"></div><div class="quiz-xp-row"><span>Correct answer</span><strong>+20 XP</strong></div><div class="quiz-xp-row"><span>Today's goal</span><strong>1 quick quiz</strong></div><button class="text-button" data-go="learn">Review lessons <span aria-hidden="true">→</span></button></aside></div>  
+      <article class="panel leaderboard-panel"><div class="panel-header"><div><h3>Community practice board</h3><p>Fictional learners · sample scores · for demonstration only</p></div><span class="simulation-stamp">SIMULATED</span></div><div id="leaderboard-list"></div></article>  
+    </section>  
+  </main>
+
+So now I want this program into a website and give more uiux
+
+Main  thing uh have to include CSS and JavaScript in the given program while executing the program
